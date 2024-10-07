@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mainApp.views import inicio, get_prueba
-from persona.views import get_estudiantes
-from curso.views import get_curso
+from persona.views import get_estudiantes, formulario_estudiante
+from curso.views import get_curso, formulario
+from estudiante_curso.views import Estudiante_Curso
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,7 @@ urlpatterns = [
     path('Lista-estudiantes/',get_estudiantes, name='lista-estudiantes'),
     path('Hola-Prueba/',get_prueba,name='Hola-Mundo-Prueba'),
     path('Lista-cursos/',get_curso,name='lista-cursos'),
+    path('cursos/agregar/', formulario, name='formulario_curso'),
+    path('estudiantes/agregar/', formulario_estudiante, name='formulario_estudiante'),
+    path('estudiantes-curso/', Estudiante_Curso, name='estudiante_curso'),
 ]
