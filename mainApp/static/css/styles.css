@@ -228,3 +228,24 @@ footer{
     padding: 15px;
     padding-top: 0px;
 }
+
+.estado-activo {
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.estado-suspendido {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.estado-finalizado {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

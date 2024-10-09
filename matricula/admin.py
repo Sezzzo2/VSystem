@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Matricula
 
-# Register your models here.
+@admin.register(Matricula)
+class MatriculaAdmin(admin.ModelAdmin):
+    list_display = ("id", "estado", "fecha_inicio", "costo", "estudiante_curso")
