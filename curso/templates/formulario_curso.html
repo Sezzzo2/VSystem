@@ -6,6 +6,8 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success">Guardar curso</button>
+        <a href="{% url 'lista-cursos' %}" class="btn btn-danger">Regresar al listado</a>
+
     </form>
 
 {% endblock %}

@@ -11,6 +11,7 @@
                 <th scope="col">Apellidos</th>
                 <th scope="col">DNI</th>
                 <th scope="col">Rol</th>
+                <th scope="col">Acciones</th> <!-- Columna para botones de editar y eliminar -->
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,15 @@
                 <td>{{ estudiante.apellidos }}</td>
                 <td>{{ estudiante.dni }}</td>
                 <td>{{ estudiante.rol }}</td>
+                <td>
+                    <!-- Botones de editar y eliminar -->
+                    <a href="{% url 'editar_estudiante' estudiante.id %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_estudiante' estudiante.id %}" class="btn btn-danger" onclick="return confirmarEliminacion();">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">No hay estudiantes registrados.</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -28,5 +38,12 @@
 
     <!-- Botón para agregar nuevos estudiantes -->
     <a href="{% url 'formulario_estudiante' %}" class="btn btn-primary">Agregar nuevo estudiante</a>
+
+    <!-- Script de confirmación de eliminación -->
+    <script>
+        function confirmarEliminacion() {
+            return confirm('¿Estás seguro de que deseas eliminar este estudiante? Esta acción no se puede deshacer.');
+        }
+    </script>
 
 {% endblock %}

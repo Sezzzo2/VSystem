@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Persona
 from .forms import PersonaForm
 
@@ -23,3 +23,23 @@ def formulario_estudiante(request):
         form = PersonaForm()
 
     return render(request, 'formulario_estudiante.html', {'form': form})
+
+# Vista para editar estudiantes
+def editar_estudiante(request, estudiante_id):
+    estudiante_instance = get_object_or_404(Persona, id=estudiante_id)
+
+    if request.method == 'POST':
+        form = PersonaForm(request.POST, instance=estudiante_instance)
+        if form.is_valid():
+            form.save()
+            return redirect('lista-estudiantes')
+    else:
+        form = PersonaForm(instance=estudiante_instance)
+
+    return render(request, 'formulario_estudiante.html', {'form': form})
+
+# Vista para eliminar estudiantes
+def eliminar_estudiante(request, estudiante_id):
+    estudiante_instance = get_object_or_404(Persona, id=estudiante_id)
+    estudiante_instance.delete()
+    return redirect('lista-estudiantes')

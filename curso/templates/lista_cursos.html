@@ -10,6 +10,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Capacidad Máxima</th>
                 <th scope="col">Profesor</th>
+                <th scope="col">Acciones</th> <!-- Columna para los botones de editar/eliminar -->
             </tr>
         </thead>
         <tbody>
@@ -19,13 +20,26 @@
                 <td>{{ curso.nombre }}</td>
                 <td>{{ curso.capacidad_max }}</td>
                 <td>{{ curso.profesor.nombre }} {{ curso.profesor.apellidos }}</td>
+                <td>
+                    <!-- Botones de editar y eliminar al lado de cada curso -->
+                    <a href="{% url 'editar_curso' curso.id %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_curso' curso.id %}" class="btn btn-danger" onclick="return confirmarEliminacion();">Eliminar</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
     <!-- Botón para agregar nuevos cursos -->
-    <a href="{% url 'formulario_curso' %}" class="btn btn-primary">Agregar nuevo curso</a>
+    <div class="d-flex justify-content-end">
+        <a href="{% url 'formulario_curso' %}" class="btn btn-primary">Agregar nuevo curso</a>
+    </div>
+
+    <!-- Script de confirmación de eliminación -->
+    <script>
+        function confirmarEliminacion() {
+            return confirm('¿Estás seguro de que deseas eliminar este curso? Esta acción no se puede deshacer.');
+        }
+    </script>
 
 {% endblock %}
-

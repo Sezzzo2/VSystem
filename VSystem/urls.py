@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mainApp.views import inicio
-from persona.views import get_estudiantes, formulario_estudiante
-from curso.views import get_curso, formulario
-from estudiante_curso.views import Estudiante_Curso, formulario_estudiante_curso
-from matricula.views import lista_matriculas, formulario_matricula
+from persona.views import get_estudiantes, formulario_estudiante, editar_estudiante,eliminar_estudiante
+from curso.views import get_curso, formulario, editar_curso, eliminar_curso
+from estudiante_curso.views import Estudiante_Curso, formulario_estudiante_curso, eliminar_estudiante_curso,editar_estudiante_curso
+from matricula.views import lista_matriculas, formulario_matricula,eliminar_matricula
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,8 +29,16 @@ urlpatterns = [
     path('Lista-cursos/',get_curso,name='lista-cursos'),
     path('cursos/agregar/', formulario, name='formulario_curso'),
     path('estudiantes/agregar/', formulario_estudiante, name='formulario_estudiante'),
-     path('estudiantes-curso/', Estudiante_Curso, name='lista-estudiantes-cursos'),  
+    path('estudiantes-curso/', Estudiante_Curso, name='lista-estudiantes-cursos'),  
     path('estudiantes-curso/agregar/', formulario_estudiante_curso, name='formulario_estudiante_curso'),
     path('matriculas/', lista_matriculas, name='lista-matriculas'), 
     path('matriculas/nueva/', formulario_matricula, name='formulario_matricula'),  
+    path('cursos/editar/<int:curso_id>/', editar_curso, name='editar_curso'),
+    path('cursos/eliminar/<int:curso_id>/', eliminar_curso, name='eliminar_curso'),
+    path('matriculas/editar/<int:id>/', formulario_matricula, name='editar_matricula'),  
+    path('matriculas/eliminar/<int:id>/', eliminar_matricula, name='eliminar_matricula'), 
+    path('estudiantes-cursos/editar/<int:estudiante_curso_id>/', editar_estudiante_curso, name='editar_estudiante_curso'),
+    path('estudiantes-cursos/eliminar/<int:estudiante_curso_id>/', eliminar_estudiante_curso, name='eliminar_estudiante_curso'),
+    path('estudiantes/editar/<int:estudiante_id>/', editar_estudiante, name='editar_estudiante'),
+    path('estudiantes/eliminar/<int:estudiante_id>/', eliminar_estudiante, name='eliminar_estudiante'),
 ]
