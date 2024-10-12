@@ -6,7 +6,7 @@ from .forms import PersonaForm
 def get_estudiantes(request):
     estudiantes = Persona.objects.filter(rol='Estudiante')
     return render(request, 'lista-estudiantes.html', {
-        'title': 'Lista de Estudiantes',
+        'title': 'Lista de estudiantes',
         'estudiantes': estudiantes
     })
 

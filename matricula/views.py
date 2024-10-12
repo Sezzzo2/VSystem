@@ -14,7 +14,7 @@ def lista_matriculas(request):
         matriculas = Matricula.objects.all()  # Mostrar todas las matrículas si no se selecciona un curso
 
     return render(request, 'lista_matricula.html', {
-        'title': 'Lista de Matrículas',
+        'title': 'Lista de matrículas',
         'matriculas': matriculas,
         'cursos': cursos,  # Pasar los cursos a la plantilla
         'curso_seleccionado': curso_seleccionado  # Pasar el curso seleccionado a la plantilla
