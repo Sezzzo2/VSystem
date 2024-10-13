@@ -62,7 +62,10 @@
                 <a style="text-decoration: none;" href="{% url 'inicio' %}">Inicio</a>
             </li>            
             <li class="nav-item">        
-                <a style="text-decoration: none;" href="{% url 'lista-estudiantes' %}">Estudiante</a>
+                <a style="text-decoration: none;" href="{% url 'lista-estudiantes' %}">Estudiantes</a>
+            </li>  
+            <li class="nav-item">        
+                <a style="text-decoration: none;" href="{% url 'lista-profesores' %}">Profesores</a>
             </li>  
             <li class="nav-item">        
                 <a style="text-decoration: none;" href="{% url 'lista-cursos' %}">Curso</a>
@@ -85,7 +88,7 @@
                 <img src="{% static 'images/gato.jpeg' %}" alt="Logo VSystem">
                 
                 <h1>¡Bienvenido a VSystem!</h1>
-                <p>VSystem es una plataforma para gestionar estudiantes, cursos y matrículas de manera eficiente.</p>
+                <p>VSystem te ofrece una interfaz sencilla y funcional, permitiendo realizar un seguimiento detallado de cada estudiante y profesor, gestionar cursos disponibles, y organizar el proceso de matriculación.</p>
             </div>
             {% endblock %}
         </div>        
